@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "declaration": false,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2021",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": "./components",
+    "jsx": "react",
+    "sourceMap": true,
+    "removeComments": true,
+    "noEmitOnError": true,
+    "typeRoots": [
+      "./node_modules/@types/",
+    ],
+  },
+  "include": [
+    "./components/**/*"
+  ],
+  "exclude": [
+    "public",
+    "build",
+    "node_modules",
+    "./components/**/*.spec.ts",
+    "./components/**/*.spec.tsx",
+    "./components/**/*.spec.js",
+    "./components/**/*.spec.jsx"
+  ],
+  "compileOnSave": false
+}
