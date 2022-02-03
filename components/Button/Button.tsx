@@ -15,7 +15,7 @@ const Button: FC<IButtonProps> = props => {
     size,
     label,
     primary,
-    backgroundColor,
+    backgroundColor
   } = props
 
   const mode = primary
@@ -27,7 +27,6 @@ const Button: FC<IButtonProps> = props => {
       type="button"
       className={['storybook-button', `storybook-button--${size || 'medium'}`, mode].join(' ')}
       style={{ backgroundColor }}
-      {...props}
     >
       {label}
     </button>
