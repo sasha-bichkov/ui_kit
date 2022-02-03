@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import './Button.css'
+import './Button.scss'
 
 interface IButtonProps {
   readonly primary: boolean
