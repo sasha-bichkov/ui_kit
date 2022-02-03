@@ -1,34 +1,50 @@
 import React, { FC } from 'react'
+import classNames from 'classnames'
+import { FaSearch } from 'react-icons/fa'
 
 import './Button.scss'
 
-interface IButtonProps {
-  readonly primary: boolean
-  readonly size: string
-  readonly backgroundColor: string
-  readonly label: string
-  onClick(): void
+export interface ButtonProps {
+  readonly className?: string
+  readonly showSpinner?: boolean
+  readonly showSearch?: boolean
+  readonly type?: 'button' | 'submit' | 'reset'
+  readonly disabled?: boolean
+  readonly children: React.ReactNode
+
+  onClick?(): void
 }
 
-const Button: FC<IButtonProps> = props => {
-  const {
-    size,
-    label,
-    primary,
-    backgroundColor
-  } = props
+const Button: FC<ButtonProps> = ({
+  className,
+  onClick,
+  showSpinner,
+  showSearch,
+  type = 'button',
+  disabled,
+  children
+}: ButtonProps) => {
+  const classes = classNames(
+    'Button',
+    className,
+  )
 
-  const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary'
+  const renderSpinner = () => {
+    return (
+      <span className="Button__spinner Button__spinner-slow" />
+    )
+  }
 
   return (
     <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size || 'medium'}`, mode].join(' ')}
-      style={{ backgroundColor }}
+      type={type}
+      className={classes}
+      onClick={onClick}
+      disabled={disabled}
     >
-      {label}
+      {showSearch && <FaSearch className='Button__search' />}
+      {children}
+      {showSpinner && renderSpinner()}
     </button>
   )
 }

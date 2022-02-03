@@ -1,42 +1,36 @@
-import React from 'react'
+import React, { FC } from 'react'
+import { FaSearch } from 'react-icons/fa'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Button from '../components/Button/Button'
 
-// More on default export:
-// https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: 'Button',
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+} as ComponentMeta<typeof Button>
+
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+
+export const Defautl = Template.bind({})
+Defautl.args = {
+  children: 'Press me'
 }
 
-// More on component templates:
-// https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Button {...args} />
-
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary = Template.bind({})
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  children: 'Press me',
+  className: 'primary',
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  label: 'Button',
+export const Circle = Template.bind({})
+Circle.args = {
+  children: <FaSearch />,
+  className: 'circle',
 }
 
-export const Large = Template.bind({})
-Large.args = {
-  size: 'large',
-  label: 'Button',
+export const IconLeft = Template.bind({})
+IconLeft.args = {
+  children: 'Search button',
+  showSearch: true,
 }
 
-export const Small = Template.bind({})
-Small.args = {
-  size: 'small',
-  label: 'Button',
-}
