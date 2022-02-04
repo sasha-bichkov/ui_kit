@@ -1,0 +1,98 @@
+$default-color: #fff;
+$default-border-color: #d9d9d9;
+$primary-color: #03a9f4;
+$primary-border-color: #03a9f4;
+
+.Button {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+
+  min-width: 64px;
+  padding: 6px 16px;
+  border: 1px solid $default-border-color;
+  border-radius: 4px;
+  background-color: $default-color;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $primary-color;
+    color: $primary-color;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: rgb(0 0 0 / .12);
+    color: rgb(0 0 0 / .26);
+
+    cursor: not-allowed;
+  }
+}
+
+.Button__primary {
+  border: 1px solid $primary-border-color;
+  background-color: $primary-color;
+  color: $default-color;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: adjust-color($primary-color, $lightness: 10%);
+    color: $default-color;
+  }
+}
+
+.Button__spinner {
+  /* Spinner size and color */
+  position: absolute;
+  display: inline-flex;
+  vertical-align: middle;
+
+  box-sizing: border-box;
+  width: 1rem;
+  height: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #444 transparent transparent #444;
+  border-radius: 50%;
+}
+
+/* Animation styles */
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Button__spinner-slow {
+  animation: spinner 1s linear infinite;
+}
+
+.Button__dropdownLeft {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.Button__dropdownRight {
+  padding: 7px 16px 7px 0;
+  min-width: 5px;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.Button__dropdownItem {
+
+}
+
