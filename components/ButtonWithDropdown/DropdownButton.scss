@@ -2,6 +2,8 @@ $default-color: #fff;
 $default-border-color: #d9d9d9;
 $primary-color: #03a9f4;
 $primary-border-color: #03a9f4;
+$disabled-background-color: rgb(0 0 0 / .12);
+$disabled-color: rgb(0 0 0 / .26);
 
 .Button {
   position: relative;
@@ -28,14 +30,18 @@ $primary-border-color: #03a9f4;
   }
 
   &:disabled {
-    background-color: rgb(0 0 0 / .12);
-    color: rgb(0 0 0 / .26);
+    background-color: $disabled-background-color;
+    color: $disabled-color;
 
     cursor: not-allowed;
   }
 }
 
-.Button__primary {
+.Button__dropdown {
+  max-width: 250px;
+}
+
+.Button-primary {
   border: 1px solid $primary-border-color;
   background-color: $primary-color;
   color: $default-color;
@@ -85,14 +91,34 @@ $primary-border-color: #03a9f4;
 }
 
 .Button__dropdownRight {
-  padding: 7px 16px 7px 0;
   min-width: 5px;
+  padding: 7px 16px 7px 0;
   border-left: none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.Button__dropdownItem {
+.Button__dropdownList {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
 
+  width: 100%;
+  max-width: 200px;
+  margin-top: 5px;
+  box-shadow: rgb(0 0 0 / .16) 0 1px 4px;
 }
 
+.Button__dropdownItem {
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 0;
+  background-color: $default-color;
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $disabled-background-color;
+  }
+}

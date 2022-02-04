@@ -14,12 +14,12 @@ export interface ButtonProps {
   readonly children: React.ReactNode[]
   readonly title: string
 
-  onClick(e: SyntheticEvent): void
+  callback(e: SyntheticEvent): void
 }
 
 const DropdownButton: FC<ButtonProps> = ({
   className,
-  onClick,
+  callback,
   showSpinner,
   type = 'button',
   disabled,
@@ -36,8 +36,8 @@ const DropdownButton: FC<ButtonProps> = ({
       <span className="Button__spinner Button__spinner-slow" />
     )
   }
-  const generateId = () => {
-    return Math.random().toString(16).slice(2)
+  const onClick = () => {
+    setActive(!isActive)
   }
 
   return (
@@ -46,30 +46,29 @@ const DropdownButton: FC<ButtonProps> = ({
         <button
           className={`${classes} Button__dropdownLeft`}
           type={type}
-          onClick={onClick}
+          onClick={callback}
           disabled={disabled}
         >
           {title}
           {showSpinner && renderSpinner()}
         </button>
         <button
-          onClick={() => setActive(!isActive)}
+          onClick={onClick}
           disabled={disabled}
           className={`${classes} Button__dropdownRight`}>
           <FaChevronDown className='Button__dropdownChevronIcon' />
         </button>
-        {isActive && <div className='Button__dropdownLIst'>
+        {isActive && <div className='Button__dropdownList'>
           {
-            children.map(item => (
+            children.map((item, index) => (
               <button
-                onClick={(e) => onClick(e)}
+                onClick={(e) => callback(e)}
                 className='Button__dropdownItem'
-                key={generateId()}>
+                key={index}>
                 {item}
               </button>
             ))
           }
-
         </div>}
       </div>
     </FocusLock>

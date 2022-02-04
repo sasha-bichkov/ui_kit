@@ -13,10 +13,17 @@ const Template: ComponentStory<typeof DropdownButton> = (args) => (
   <DropdownButton {...args} />
 )
 
-export const Defautl = Template.bind({})
-
-Defautl.args = {
+export const Default = Template.bind({})
+Default.args = {
   title: 'ButtonWithDropdown',
-  onClick: (e) => console.log(e.currentTarget),
+  callback: (e) => console.log(e.currentTarget),
   children: ['item1','item2', 'item3']
+}
+
+export const Primary = Template.bind({})
+Primary.args = {
+  title: 'ButtonWithDropdown',
+  callback: (e) => console.log(e.currentTarget),
+  children: ['item1','item2', 'item3'],
+  className: 'Button-primary'
 }
