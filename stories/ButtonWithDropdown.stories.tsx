@@ -1,20 +1,22 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import ButtonWithDropdown from '../components/ButtonWithDropdown/ButtonWithDropdown'
+import DropdownButton from '../components/ButtonWithDropdown/DropdownButton'
 
 
 export default {
   title: 'ButtonWithDropdown',
-  component: ButtonWithDropdown,
-} as ComponentMeta<typeof ButtonWithDropdown>
+  component: DropdownButton,
+} as ComponentMeta<typeof DropdownButton>
 
-const Template: ComponentStory<typeof ButtonWithDropdown> = (args) => (
-  <ButtonWithDropdown {...args} />
+const Template: ComponentStory<typeof DropdownButton> = (args) => (
+  <DropdownButton {...args} />
 )
 
 export const Defautl = Template.bind({})
 
 Defautl.args = {
-  children: 'ButtonWithDropdown',
+  title: 'ButtonWithDropdown',
+  onClick: (e) => console.log(e.currentTarget),
+  children: ['item1','item2', 'item3']
 }

@@ -15,5 +15,5 @@ yarn-error.log*
 .npm/
 stats.json
 jest-coverage
-
+storybook-static
 tmp/cache

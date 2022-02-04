@@ -8,7 +8,6 @@ $primary-border-color: #03a9f4;
   display: inline-flex;
   vertical-align: middle;
   align-items: center;
-  justify-content: center;
 
   min-width: 64px;
   padding: 6px 16px;
@@ -21,9 +20,11 @@ $primary-border-color: #03a9f4;
   transition: .3s;
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     border-color: $primary-color;
     color: $primary-color;
+    outline: none;
   }
 
   &:disabled {
@@ -40,7 +41,8 @@ $primary-border-color: #03a9f4;
   color: $default-color;
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
     background-color: adjust-color($primary-color, $lightness: 10%);
     color: $default-color;
   }
@@ -75,3 +77,22 @@ $primary-border-color: #03a9f4;
 .Button__spinner-slow {
   animation: spinner 1s linear infinite;
 }
+
+.Button__dropdownLeft {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.Button__dropdownRight {
+  padding: 7px 16px 7px 0;
+  min-width: 5px;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.Button__dropdownItem {
+
+}
+
