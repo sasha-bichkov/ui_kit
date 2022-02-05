@@ -16,3 +16,9 @@ export const Defautl = Template.bind({})
 Defautl.args = {
   label: 'Checkbox',
 }
+
+export const Primary = Template.bind({})
+Primary.args = {
+  label: 'Checkbox Primary',
+  className: 'Checkbox-primary'
+}
