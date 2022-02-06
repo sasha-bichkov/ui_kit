@@ -1,0 +1,78 @@
+$switch-color: #bfbfbf;
+$switch-background-color: #03a9f4;
+$disabled-color: rgb(0 0 0 / .26);
+$disabled-background-color: rgb(0 0 0 / .12);
+$duration: .2s;
+
+.Switch {
+  position: relative;
+  display: flex;
+
+  width: 50px;
+  height: 25px;
+  border-radius: 100px;
+  background-color: $switch-color;
+
+  cursor: pointer;
+  transition: background-color $duration, box-shadow $duration;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: .125em;
+    left: .125em;
+
+    width: 1.313em;
+    height: 1.313em;
+    border-radius: 100px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 35 11 / .2);
+
+    transition: $duration;
+  }
+
+  &:active::before {
+    width: 1.75em;
+  }
+}
+
+.Switch__input {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  &:disabled + .Switch {
+    background-color: $disabled-background-color;
+
+    cursor: not-allowed;
+  }
+
+  &:focus + .Switch {
+    box-shadow: 0 0 0 2px rgb(0 0 0 / .1);
+  }
+
+  &:focus:checked + .Switch {
+    box-shadow: 0 0 0 2px rgb(24 144 255 / .2);
+  }
+}
+
+.Switch__input:checked + .Switch {
+  background-color: $switch-background-color;
+
+  &::before {
+    left: calc(100% - 2px);
+
+    transform: translate(-100%);
+  }
+}
+
+.Switch__input:checked:disabled + .Switch {
+  background-color: $disabled-background-color;
+}
+
