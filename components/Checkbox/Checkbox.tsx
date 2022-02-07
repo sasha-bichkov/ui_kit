@@ -7,6 +7,7 @@ export interface ICheckboxProps {
   readonly className?: string
   readonly label: string
   readonly disabled?: boolean
+  readonly id?: string
 
   onClick?(): void
 }
@@ -24,7 +25,7 @@ const Checkbox: FC<ICheckboxProps> = ({
     'Checkbox__label',
     {
       'Checkbox__label-disabled': disabled,
-      'Checkbox__label-primary': className,
+      'Checkbox__label-primary': (className === 'Checkbox-primary'),
     },
   )
 
