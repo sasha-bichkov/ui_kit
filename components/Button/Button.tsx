@@ -1,13 +1,12 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
-import { FaSearch } from 'react-icons/fa'
 
 import './Button.scss'
 
 export interface ButtonProps {
   readonly className?: string
   readonly showSpinner?: boolean
-  readonly showSearch?: boolean
+  readonly Icon?: React.ReactNode
   readonly type?: 'button' | 'submit' | 'reset'
   readonly disabled?: boolean
   readonly children: React.ReactNode
@@ -19,7 +18,7 @@ const Button: FC<ButtonProps> = ({
   className,
   onClick,
   showSpinner,
-  showSearch,
+  Icon,
   type = 'button',
   disabled,
   children
@@ -42,7 +41,7 @@ const Button: FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {showSearch && <FaSearch className='Button__search' />}
+      {Icon}
       {children}
       {showSpinner && renderSpinner()}
     </button>

@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import { FaSearch } from 'react-icons/fa'
+import React from 'react'
+import { FaSearch, FaAmazon } from 'react-icons/fa'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Button from '../components/Button/Button'
@@ -19,18 +19,24 @@ Defautl.args = {
 export const Primary = Template.bind({})
 Primary.args = {
   children: 'Press me',
-  className: 'primary',
+  className: 'Button-primary',
 }
 
 export const Circle = Template.bind({})
 Circle.args = {
   children: <FaSearch />,
-  className: 'circle',
+  className: 'Button__circle',
 }
 
-export const IconLeft = Template.bind({})
-IconLeft.args = {
+export const SearchIcon = Template.bind({})
+SearchIcon.args = {
   children: 'Search button',
-  showSearch: true,
+  Icon: <FaSearch />
+}
+
+export const AmazonIcon = Template.bind({})
+AmazonIcon.args = {
+  children: 'Search button',
+  Icon: <FaAmazon />
 }
 
