@@ -31,6 +31,7 @@ $duration: .2s;
   }
 
   &:disabled {
+    border-color: $disabled-color;
     background-color: $disabled-background-color;
     color: $disabled-color;
 
