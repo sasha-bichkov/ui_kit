@@ -4,7 +4,7 @@ $disabled-color: rgb(0 0 0 / .26);
 $disabled-background-color: rgb(0 0 0 / .12);
 $duration: .2s;
 
-.Switch {
+.Switch__item {
   position: relative;
   display: flex;
 
@@ -19,11 +19,11 @@ $duration: .2s;
   &::before {
     content: "";
     position: absolute;
-    top: .125em;
-    left: .125em;
+    top: .125rem;
+    left: .125rem;
 
-    width: 1.313em;
-    height: 1.313em;
+    width: 1.313rem;
+    height: 1.313rem;
     border-radius: 100px;
     background-color: #fff;
     box-shadow: 0 2px 4px 0 rgb(0 35 11 / .2);
@@ -32,7 +32,7 @@ $duration: .2s;
   }
 
   &:active::before {
-    width: 1.75em;
+    width: 1.75rem;
   }
 }
 
@@ -47,22 +47,22 @@ $duration: .2s;
   padding: 0;
   border: 0;
 
-  &:disabled + .Switch {
+  &:disabled + .Switch__item {
     background-color: $disabled-background-color;
 
     cursor: not-allowed;
   }
 
-  &:focus + .Switch {
+  &:focus + .Switch__item {
     box-shadow: 0 0 0 2px rgb(0 0 0 / .1);
   }
 
-  &:focus:checked + .Switch {
+  &:focus:checked + .Switch__item {
     box-shadow: 0 0 0 2px rgb(24 144 255 / .2);
   }
 }
 
-.Switch__input:checked + .Switch {
+.Switch__input:checked + .Switch__item {
   background-color: $switch-background-color;
 
   &::before {
@@ -72,7 +72,6 @@ $duration: .2s;
   }
 }
 
-.Switch__input:checked:disabled + .Switch {
+.Switch__input:checked:disabled + .Switch__item {
   background-color: $disabled-background-color;
 }
-

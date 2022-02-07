@@ -16,9 +16,9 @@ const Switch: FC<ISwitchProps> = ({
   onClick
 }) => {
   return (
-    <label className='Switch__wrapper'>
+    <label>
       <input disabled={disabled} className='Switch__input' type="checkbox" onChange={onClick} />
-      <span className='Switch' />
+      <span className='Switch__item' />
     </label>
   )
 }
