@@ -4,22 +4,26 @@ $primary-color: #03a9f4;
 $primary-border-color: #03a9f4;
 $disabled-background-color: rgb(0 0 0 / .12);
 $disabled-color: rgb(0 0 0 / .26);
+$duration: .3s;
 
 .Button {
   position: relative;
   display: inline-flex;
   vertical-align: middle;
   align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
 
   min-width: 64px;
-  padding: 6px 16px;
+  padding: .375rem 1rem;
   border: 1px solid $default-border-color;
   border-radius: 4px;
   background-color: $default-color;
   text-decoration: none;
 
   cursor: pointer;
-  transition: .3s;
+  transition: $duration;
 
   &:hover,
   &:active,
@@ -32,6 +36,7 @@ $disabled-color: rgb(0 0 0 / .26);
   &:disabled {
     background-color: $disabled-background-color;
     color: $disabled-color;
+    border-color: $disabled-color;
 
     cursor: not-allowed;
   }
@@ -51,6 +56,11 @@ $disabled-color: rgb(0 0 0 / .26);
   &:focus {
     background-color: adjust-color($primary-color, $lightness: 10%);
     color: $default-color;
+  }
+
+  &:disabled {
+    background-color: $disabled-background-color;
+    color: $disabled-color;
   }
 }
 
@@ -92,7 +102,7 @@ $disabled-color: rgb(0 0 0 / .26);
 
 .Button__dropdownRight {
   min-width: 5px;
-  padding: 7px 16px 7px 0;
+  padding: .375rem 1rem .438rem 0;
   border-left: none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -110,8 +120,8 @@ $disabled-color: rgb(0 0 0 / .26);
 }
 
 .Button__dropdownItem {
-  margin-bottom: 5px;
-  padding: 5px;
+  margin-bottom: .313rem;
+  padding: .313rem;
   border: 0;
   background-color: $default-color;
   text-decoration: none;

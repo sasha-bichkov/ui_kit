@@ -1,8 +1,6 @@
 import React, { FC, SyntheticEvent, useState } from 'react'
-import classNames from 'classnames'
-import FocusLock from 'react-focus-lock'
-
 import { FaChevronDown } from 'react-icons/fa'
+import classNames from 'classnames'
 
 import './DropdownButton.scss'
 
@@ -27,8 +25,14 @@ const DropdownButton: FC<ButtonProps> = ({
   children
 }) => {
   const [isActive, setActive] = useState(false)
-  const classes = classNames(
+  const leftButtonClasses = classNames(
     'Button',
+    'Button__dropdownLeft',
+    className,
+  )
+  const rightButtonClasses = classNames(
+    'Button',
+    'Button__dropdownRight',
     className,
   )
   const renderSpinner = () => {
@@ -41,37 +45,36 @@ const DropdownButton: FC<ButtonProps> = ({
   }
 
   return (
-    <FocusLock>
-      <div className='Button__dropdown'>
-        <button
-          className={`${classes} Button__dropdownLeft`}
-          type={type}
-          onClick={callback}
-          disabled={disabled}
-        >
-          {title}
-          {showSpinner && renderSpinner()}
-        </button>
-        <button
-          onClick={onClick}
-          disabled={disabled}
-          className={`${classes} Button__dropdownRight`}>
-          <FaChevronDown className='Button__dropdownChevronIcon' />
-        </button>
-        {isActive && <div className='Button__dropdownList'>
-          {
-            children.map((item, index) => (
-              <button
-                onClick={(e) => callback(e)}
-                className='Button__dropdownItem'
-                key={index}>
-                {item}
-              </button>
-            ))
-          }
-        </div>}
-      </div>
-    </FocusLock>
+    <div className='Button__dropdown'>
+      <button
+        className={leftButtonClasses}
+        type={type}
+        onClick={callback}
+        disabled={disabled}
+      >
+        {title}
+        {showSpinner && renderSpinner()}
+      </button>
+      <button
+        onClick={onClick}
+        disabled={disabled}
+        className={rightButtonClasses}>
+        <FaChevronDown className='Button__dropdownChevronIcon' />
+      </button>
+      {isActive && <div className='Button__dropdownList'>
+        {
+          children.map((item, index) => (
+            <button
+              onClick={(e) => callback(e)}
+              className='Button__dropdownItem'
+              key={index}>
+              {item}
+            </button>
+          ))
+        }
+      </div>}
+    </div>
+
   )
 }
 
