@@ -18,9 +18,9 @@ const Radio: FC<IRadioProps> = ({
   label
 }) => {
   return (
-    <label className='Radio__wrapper'>
+    <label className='Radio'>
       <input disabled={disabled} className='Radio__input' type="radio" onChange={onClick} />
-      <div className='Radio' />
+      <div className='Radio__item' />
       {label}
     </label>
   )
