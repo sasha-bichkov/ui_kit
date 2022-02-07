@@ -19,13 +19,12 @@ const Checkbox: FC<ICheckboxProps> = ({
 }) => {
   const InputClasses = classNames(
     'Checkbox',
-    className
   )
   const labelClasses = classNames(
     'Checkbox__label',
+    className,
     {
       'Checkbox__label-disabled': disabled,
-      'Checkbox__label-primary': (className === 'Checkbox-primary'),
     },
   )
 
