@@ -19,7 +19,7 @@ Defautl.args = {
 export const Primary = Template.bind({})
 Primary.args = {
   children: 'Press me',
-  className: 'Button-primary',
+  className: 'Select-primary',
 }
 
 export const Circle = Template.bind({})
