@@ -13,12 +13,13 @@ const Template: ComponentStory<typeof Switch> = (args) => <Switch {...args} />
 export const Default = Template.bind({})
 Default.args = {
   onClick: () => console.log('click'),
-  label: 'label'
+  label: 'label',
+  id: '1'
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
   onClick: () => console.log('click'),
   disabled: true,
-  label: 'label'
+  label: 'label',
 }
