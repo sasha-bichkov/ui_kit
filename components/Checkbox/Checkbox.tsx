@@ -15,21 +15,23 @@ export interface ICheckboxProps {
 const Checkbox: FC<ICheckboxProps> = ({
   className,
   label,
-  disabled
+  disabled,
+  id
 }) => {
   const InputClasses = classNames(
     'Checkbox',
+    className
   )
+
   const labelClasses = classNames(
     'Checkbox__label',
-    className,
     {
       'Checkbox__label-disabled': disabled,
     },
   )
 
   return (
-    <label className={labelClasses}>
+    <label id={id} className={labelClasses}>
       {label}
       <input disabled={disabled} className={InputClasses} type="checkbox" />
     </label>
