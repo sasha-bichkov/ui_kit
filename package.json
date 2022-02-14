@@ -60,8 +60,10 @@
     "webpack": "5"
   },
   "dependencies": {
+    "@types/react": "^17.0.39",
     "classnames": "^2.3.1",
     "react-focus-lock": "^2.7.1",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^6.2.1"
   }
 }
